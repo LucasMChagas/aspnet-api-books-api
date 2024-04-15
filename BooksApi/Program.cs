@@ -1,4 +1,5 @@
 using BooksApi.Data;
+using BooksApi.Services.Author;
 using Microsoft.EntityFrameworkCore;
 
 var builder = WebApplication.CreateBuilder(args);
@@ -9,6 +10,8 @@ builder.Services.AddControllers();
 
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
+
+builder.Services.AddScoped<IAuthorInterface, AuthorService>();
 
 builder.Services.AddDbContext<AppDbContext>( options =>
 {
